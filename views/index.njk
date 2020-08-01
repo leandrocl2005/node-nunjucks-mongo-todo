@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tarefas</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/0efb439bd7.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/index-todo.css">
+    </head>
+    <body>
+
+        <div class="card-container">
+            <div class="todo-card">
+                <div class="todo-card-title-container">
+                    <h4>Lista de tarefas</h4>
+                </div>
+                <div class="todo-card-body">
+                    <form class="custom-form" action="/todos" method="POST">
+                        <div class="item">
+                            <input type="text" name="title" placeholder="Nova tarefa">
+                        </div>
+                        <button class="add-btn" type="submit">Adicionar</button>
+                    </form>
+                    <ul>
+                        {% for todo in todoList %}
+                            <li>
+                                <form
+                                    method="POST" action="/todos?_method=DELETE"
+                                    id="{{todo._id}}_delete"
+                                    onclick="document.getElementById('{{todo._id}}_delete').submit()"
+                                >
+                                    <i class="fas fa-trash-alt fa-sm custom-icon"></i>
+                                    <input type="hidden" name="_id" value="{{todo._id}}">
+                                </form>
+                                <form
+                                    method="POST" action="/todos?_method=PUT"
+                                    id="{{todo._id}}"
+                                    onclick="document.getElementById('{{todo._id}}').submit()"
+                                >
+                                    <input
+                                        type="checkbox"
+                                        class="checkmark"
+                                        {% if todo.status == "done" %}
+                                            checked
+                                        {% endif %}
+                                    >
+                                    <input type="hidden" name="_id" value="{{todo._id}}">
+                                    <input
+                                        type="hidden"
+                                        name="status"
+                                        value={% if todo.status == "done" %}
+                                                "undone"
+                                                {% else %}
+                                                 "done"
+                                                {% endif %}
+                                    >
+                                </form>
+                                <span class="todo-span">{{todo.title}}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
