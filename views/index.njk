@@ -24,37 +24,39 @@
                     <ul>
                         {% for todo in todoList %}
                             <li>
-                                <form
-                                    method="POST" action="/todos?_method=DELETE"
-                                    id="{{todo._id}}_delete"
-                                    onclick="document.getElementById('{{todo._id}}_delete').submit()"
-                                >
-                                    <i class="fas fa-trash-alt fa-sm custom-icon"></i>
-                                    <input type="hidden" name="_id" value="{{todo._id}}">
-                                </form>
-                                <form
-                                    method="POST" action="/todos?_method=PUT"
-                                    id="{{todo._id}}"
-                                    onclick="document.getElementById('{{todo._id}}').submit()"
-                                >
-                                    <input
-                                        type="checkbox"
-                                        class="checkmark"
-                                        {% if todo.status == "done" %}
-                                            checked
-                                        {% endif %}
+                                <div class="action-btn">
+                                    <form
+                                        method="POST" action="/todos?_method=DELETE"
+                                        id="{{todo._id}}_delete"
+                                        onclick="document.getElementById('{{todo._id}}_delete').submit()"
                                     >
-                                    <input type="hidden" name="_id" value="{{todo._id}}">
-                                    <input
-                                        type="hidden"
-                                        name="status"
-                                        value={% if todo.status == "done" %}
-                                                "undone"
-                                                {% else %}
-                                                 "done"
-                                                {% endif %}
+                                        <i class="fas fa-trash-alt fa-sm custom-icon"></i>
+                                        <input type="hidden" name="_id" value="{{todo._id}}">
+                                    </form>
+                                    <form
+                                        method="POST" action="/todos?_method=PUT"
+                                        id="{{todo._id}}"
+                                        onclick="document.getElementById('{{todo._id}}').submit()"
                                     >
-                                </form>
+                                        <input
+                                            type="checkbox"
+                                            class="checkmark"
+                                            {% if todo.status == "done" %}
+                                                checked
+                                            {% endif %}
+                                        >
+                                        <input type="hidden" name="_id" value="{{todo._id}}">
+                                        <input
+                                            type="hidden"
+                                            name="status"
+                                            value={% if todo.status == "done" %}
+                                                    "undone"
+                                                    {% else %}
+                                                    "done"
+                                                    {% endif %}
+                                        >
+                                    </form>
+                                </div>
                                 <span class="todo-span">{{todo.title}}</span>
                             </li>
                         {% endfor %}

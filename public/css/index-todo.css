@@ -5,7 +5,7 @@ body {
 }
 
 .card-container {
-    margin: 32px auto;
+    margin: 16px auto;
     max-width: 500px;
     background: #efefef;
     padding: 8px;
@@ -79,7 +79,6 @@ form .item input[type="text"] {
 }
 
 .card-container .todo-card ul li {
-    cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
     background: #eee;
@@ -104,9 +103,9 @@ form .item input[type="text"] {
 }
 
 .card-container .todo-card ul li .custom-icon {
-    margin-right: 20px;
     color: red;
     font-size: 1rem;
+    cursor: pointer;
 
 }
 
@@ -136,6 +135,13 @@ form .item input[type="text"] {
     justify-content: center;
     align-items: center;
     background-color: #eee;
+    cursor: pointer;
+}
+
+.card-container .todo-card ul li .action-btn {
+    width: calc(14px + 25px + 32px);
+    display: flex;
+    justify-content: space-between;
 }
 
 
