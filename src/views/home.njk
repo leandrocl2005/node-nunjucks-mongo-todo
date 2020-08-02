@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/css/home.css">
+        <title>Leandro Cruvinel</title>
+        <script src="https://kit.fontawesome.com/0efb439bd7.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/responsive-image-gallery.css">
+        <script>
+            $(document).ready(function () {
+                // Add smooth scrolling to all links
+                $("a").on('click', function (event) {
+
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+                        // Prevent default anchor click behavior
+                        event.preventDefault();
+
+                        // Store hash
+                        var hash = this.hash;
+
+                        // Using jQuery's animate() method to add smooth page scroll
+                        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                        $('html, body').animate({
+                            scrollTop: $(hash)
+                                .offset()
+                                .top
+                        }, 800, function () {
+
+                            // Add hash (#) to URL when done scrolling (default click behavior)
+                            window.location.hash = hash;
+                        });
+                    } // End if
+                });
+            });
+        </script>
+    </head>
+    <body>
+
+        <header id="contact">
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="#about">Sobre</a>
+                    </li>
+                    <li>
+                        <a href="#projects">Projetos</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contatos</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="titulo">
+                <h1 class="site-title">Leandro Cruvinel</h1>
+                <h2 class="site-subtitle">Data scientist &amp; web Developer</h2>
+                <h2 class="site-subtitle"></h2>
+                <div class="grid icons">
+                    <a target="_blank" href="https://github.com/leandrocl2005">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a target="_blank" href="https://www.facebook.com/leandrocl2005">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a target="_blank" href="https://linkedin.com/in/leandrolemes">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:faker@faker.com.br">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="sobre" id="about">
+            <h2>Sobre</h2>
+
+            <div class="avatar-wrap">
+                <figure class="avatar">
+                    <img class="img-avatar" src="./img/me.jpg" alt="me">
+                </figure>
+            </div>
+
+            <p>Doutor em matemática pela Universidade Estadual de Campinas - UNICAMP. Graduado e mestre em matemática pela Universidade Federal de Uberlândia - UFU. Ministra aulas de matemática para engenharias e para o mestrado em matemática profissional, ambos na Universidade Federal do Triângulo Mineiro - UFTM. Nas horas livres faz cursos de programação, Front-End, Back-End, Full Stack, Big Data, mineração de dados e aprendizado de máquina pelas plataformas Udacity, MITx, HavardX, Datacamp, W3Cx e UTAx, além de participar de hackathons (Cocatrel, Algar Tech, Serasa, Kaggle e Analitycs Vidhya). Graduado em Sistemas para Internet pelas Faculdades Associadas de Uberaba - Fazu e aluno do Master of Business Administration em Ciências de Dados e Big Data pela Pontifícia Universidade Católica - PUC Minas. Busca, na ciência e na tecnologia, resolver problemas graves do país em áreas como educação, saúde e segurança.</p>
+        </section>
+
+        <section class="projects" id="projects">
+            <h2>Projetos</h2>
+
+            <div class="row">
+                <div class="column">
+                    <div class="content">
+                        <img src="/img/todo.jpg" class="responsive-img" alt="Photo by Mindspace Studio on Unsplash">
+                        <h3>Lista de tarefas</h3>
+                        <p>App simples para praticar CRUD com Mongodb, Node Express e Nunjucks.</p>
+                        <a href="/todos" class="btn">Explorar</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="/img/praia.jpg" class="responsive-img" alt="praia">
+                        <h3>My work</h3>
+                        <p>Lorem ipsum ... </p>
+                        <a href="/todo" class="btn">Explorar</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="/img/praia.jpg" class="responsive-img" alt="praia">
+                        <h3>My work</h3>
+                        <p>Lorem ipsum ... </p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <img src="/img/praia.jpg" class="responsive-img" alt="praia">
+                        <h3>My work</h3>
+                        <p>Lorem ipsum ... </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style src="/js/scripts.js"></style>
+
+    </body>
+</html>
