@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Oscars</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="XFYWazblaUA" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_shape_of_water.jpg?raw=true" width="220" height="342">
+    <h2>The Shape of Water</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="F-eMt3SrfFU" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/dunkirk.jpg?raw=true" width="220" height="342">
+    <h2>Dunkirk</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="eFFj2gS9UWs" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/darkest_hour.jpg?raw=true" width="220" height="342">
+    <h2>Darkest Hour</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Jit3YhGx5pU" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/three_billboards_outside_ebbing_missouri.jpg?raw=true" width="220" height="342">
+    <h2>Three Billboards Outside Ebbing, Missouri</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="xNsiQMeSvMk" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/phantom_thread.jpg?raw=true" width="220" height="342">
+    <h2>Phantom Thread</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="iY2NLPKpK1Q" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/i_tonya.jpg?raw=true" width="220" height="342">
+    <h2>I, Tonya</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="xnGTjx-AVdc" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/get_out.jpg?raw=true" width="220" height="342">
+    <h2>Get Out</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="QkJ5H_LnRTY" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/call_me_by_your_name.jpg?raw=true" width="220" height="342">
+    <h2>Call Me by Your Name</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="zNCz4mQzfEI" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/coco.jpg?raw=true" width="220" height="342">
+    <h2>Coco</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="V070DxEvzPI" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/a_fantastic_woman.jpg?raw=true" width="220" height="342">
+    <h2>A Fantastic Woman</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="qXoRdSTrR-4" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/icarus.jpg?raw=true" width="220" height="342">
+    <h2>Icarus</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="F8IedHc7txs" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/confused.jpg?raw=true" width="220" height="342">
+    <h2>Heaven Is a Traffic Jam on the 405</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="IxwBd9OMOC4" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_silent_child.jpg?raw=true" width="220" height="342">
+    <h2>The Silent Child</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="g5HGnpyGx6M" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/dear_basketball.jpg?raw=true" width="220" height="342">
+    <h2>Dear Basketball</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="haXvp8M9Cog" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/blade_runner_2049.jpg?raw=true" width="220" height="342">
+    <h2>Blade Runner 2049</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oavMtUWDBTM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/confused.jpg?raw=true" width="220" height="342">
+    <h2>Flesh and Sand (Carne y arena)</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="_OuY1gyPMnY" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/moonlight.jpg?raw=true" width="220" height="342">
+    <h2>Moonlight</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="je0aAf2f8XQ" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/la_la_land.jpg?raw=true" width="220" height="342">
+    <h2>La La Land</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="s2-1hz1juBI" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/hacksaw_ridge.jpg?raw=true" width="220" height="342">
+    <h2>Hacksaw Ridge</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="obdKk_sYQNI" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/manchester_by_the_sea.jpg?raw=true" width="220" height="342">
+    <h2>Manchester by the Sea</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="gwqSi_ToNPs" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/arrival.jpg?raw=true" width="220" height="342">
+    <h2>Arrival</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="a2m6Jvp0bUw" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/fences.jpg?raw=true" width="220" height="342">
+    <h2>Fences</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ViuDsy7yb8M" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/fantastic_beasts_and_where_to_find_them.jpg?raw=true" width="220" height="342">
+    <h2>Fantastic Beasts and Where to Find Them</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="TKRr_f85shA" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_jungle_book.jpg?raw=true" width="220" height="342">
+    <h2>The Jungle Book</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="HrB3rOcrJxg" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/oj_made_in_america.jpg?raw=true" width="220" height="342">
+    <h2>O.J.: Made in America</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Cn5l7HJaYuA" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/piper.jpg?raw=true" width="220" height="342">
+    <h2>Piper</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="r-61yYjKHHc" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_salesman.jpg?raw=true" width="220" height="342">
+    <h2>The Salesman</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="9zXiaDhAEwY" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/sing.jpg?raw=true" width="220" height="342">
+    <h2>Sing</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="CmRih_VtVAs" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/suicide_squad.jpg?raw=true" width="220" height="342">
+    <h2>Suicide Squad</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="3wj4ncIEDxw" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_white_helmets.jpg?raw=true" width="220" height="342">
+    <h2>The White Helmets</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="zQ2XkyDTW34" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/zootopia.jpg?raw=true" width="220" height="342">
+    <h2>Zootopia</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="cba3PJ3nY3E" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/spotlight.jpg?raw=true" width="220" height="342">
+    <h2>Spotlight</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="akX3Is3qBpw" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/mad_max_fury_road.jpg?raw=true" width="220" height="342">
+    <h2>Mad Max: Fury Road</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="QRfj1VCg16Y" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_revenant.jpg?raw=true" width="220" height="342">
+    <h2>The Revenant</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="2-2x3r1m2I4" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/bridge_of_spies.jpg?raw=true" width="220" height="342">
+    <h2>Bridge of Spies</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="vgqG3ITMv1Q" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_big_short.jpg?raw=true" width="220" height="342">
+    <h2>The Big Short</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="E_Ci-pAL4eE" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/room.jpg?raw=true" width="220" height="342">
+    <h2>Room</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="r2T9FhDR3zY" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_hateful_eight.jpg?raw=true" width="220" height="342">
+    <h2>The Hateful Eight</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EoQuVnKhxaM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/confused.jpg?raw=true" width="220" height="342">
+    <h2>Ex Machina</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="yRUAzGQ3nSY" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/inside_out.jpg?raw=true" width="220" height="342">
+    <h2>Inside Out</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="2H78vCyPKp8" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/amy.jpg?raw=true" width="220" height="342">
+    <h2>Amy</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="-sUYg7WZSqc" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/confused.jpg?raw=true" width="220" height="342">
+    <h2>Bear Story</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Gk2OcKVu8qU" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/a_girl_in_the_river_the_price_of_forgiveness.jpg?raw=true" width="220" height="342">
+    <h2>A Girl in the River: The Price of Forgiveness</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="3wMzPztPavs" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/son_of_saul.jpg?raw=true" width="220" height="342">
+    <h2>Son of Saul</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ujmoYyEyDP8" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/spectre.jpg?raw=true" width="220" height="342">
+    <h2>Spectre</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tnlBGQUn0tM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/stutterer.jpg?raw=true" width="220" height="342">
+    <h2>Stutterer</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="xIxMMv_LD5Q" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/confused.jpg?raw=true" width="220" height="342">
+    <h2>Birdman</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="qmLEsdDnyLg" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_grand_budapest_hotel.jpg?raw=true" width="220" height="342">
+    <h2>The Grand Budapest Hotel</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="fHAfUSBc0pg" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/whiplash.jpg?raw=true" width="220" height="342">
+    <h2>Whiplash</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Fg85ggZSHMw" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_imitation_game.jpg?raw=true" width="220" height="342">
+    <h2>The Imitation Game</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="cRbAXWfthtA" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/american_sniper.jpg?raw=true" width="220" height="342">
+    <h2>American Sniper</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oNC3NYWh1vI" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/boyhood.jpg?raw=true" width="220" height="342">
+    <h2>Boyhood</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="2LqzF5WauAw" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/interstellar.jpg?raw=true" width="220" height="342">
+    <h2>Interstellar</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="6t7PQqQjYEs" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_theory_of_everything.jpg?raw=true" width="220" height="342">
+    <h2>The Theory of Everything</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ELIMeemx-FI" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/confused.jpg?raw=true" width="220" height="342">
+    <h2>Ida</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="x6t7vVTxaic" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/selma.jpg?raw=true" width="220" height="342">
+    <h2>Selma</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="PX2uyP9QGjs" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/citizenfour.jpg?raw=true" width="220" height="342">
+    <h2>Citizenfour</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="OvgyXKDXdZY" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/big_hero_6.jpg?raw=true" width="220" height="342">
+    <h2>Big Hero 6</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Ns5ua_t5Lm8" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/confused.jpg?raw=true" width="220" height="342">
+    <h2>Crisis Hotline: Veterans Press 1</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="t0NggvtmNeg" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/confused.jpg?raw=true" width="220" height="342">
+    <h2>The Phone Call</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="1cpDFHcWGak" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/still_alice.jpg?raw=true" width="220" height="342">
+    <h2>Still Alice</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Dj3XAu7QRZA" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/feast.jpg?raw=true" width="220" height="342">
+    <h2>Feast</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="z02Ie8wKKRg" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/12_years_a_slave.jpg?raw=true" width="220" height="342">
+    <h2>12 Years a Slave</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="PyGTEOuVyGQ" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/gravity.jpg?raw=true" width="220" height="342">
+    <h2>Gravity</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ety5kOjlXoU" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/dallas_buyers_club.jpg?raw=true" width="220" height="342">
+    <h2>Dallas Buyers Club</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="TbQm5doF_Uc" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/frozen.jpg?raw=true" width="220" height="342">
+    <h2>Frozen</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="4w8lohkQtbY" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_great_gatsby.jpg?raw=true" width="220" height="342">
+    <h2>The Great Gatsby</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="XsQqMwacZQw" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/her.jpg?raw=true" width="220" height="342">
+    <h2>Her</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="t0O2XsTxe3o" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/blue_jasmine.jpg?raw=true" width="220" height="342">
+    <h2>Blue Jasmine</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oavMtUWDBTM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/mr_hublot.jpg?raw=true" width="220" height="342">
+    <h2>Mr Hublot</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oavMtUWDBTM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_lady_in_number_6.jpg?raw=true" width="220" height="342">
+    <h2>The Lady in Number 6</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oavMtUWDBTM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/helium.jpg?raw=true" width="220" height="342">
+    <h2>Helium</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oavMtUWDBTM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_great_beauty.jpg?raw=true" width="220" height="342">
+    <h2>The Great Beauty</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tWyUJcA8Zfo" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/20_feet_from_stardom.jpg?raw=true" width="220" height="342">
+    <h2>20 Feet from Stardom</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="T29kIOXpj6o" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/argo.jpg?raw=true" width="220" height="342">
+    <h2>Argo</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="j9Hjrs6WQ8M" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/life_of_pi.jpg?raw=true" width="220" height="342">
+    <h2>Life of Pi</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="2TRU1vt8o7o" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/les_miserables.jpg?raw=true" width="220" height="342">
+    <h2>Les Miserables</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="qiSAbAuLhqs" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/lincoln.jpg?raw=true" width="220" height="342">
+    <h2>Lincoln</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="nwlcUsTq4TM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/django_unchained.jpg?raw=true" width="220" height="342">
+    <h2>Django Unchained</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="6kw1UVovByw" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/skyfall.jpg?raw=true" width="220" height="342">
+    <h2>Skyfall</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EI_3ywJLQio" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/silver_linings_playbook.jpg?raw=true" width="220" height="342">
+    <h2>Silver Linings Playbook</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EYFhFYoDAo4" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/zero_dark_thirty.jpg?raw=true" width="220" height="342">
+    <h2>Zero Dark Thirty</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="VMOugpyFf3A" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/amour.jpg?raw=true" width="220" height="342">
+    <h2>Amour</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Z-nyXX5zOLg" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/anna_karenina.jpg?raw=true" width="220" height="342">
+    <h2>Anna Karenina</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="mM6cLnscmO8" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/paperman.jpg?raw=true" width="220" height="342">
+    <h2>Paperman</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="TEHWDA_6e3M" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/brave.jpg?raw=true" width="220" height="342">
+    <h2>Brave</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="tDw7OqVBT-w" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/searching_for_sugar_man.jpg?raw=true" width="220" height="342">
+    <h2>Searching for Sugar Man</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="MBhPPJeoYn8" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/inocente.jpg?raw=true" width="220" height="342">
+    <h2>Inocente</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="XLAVg17luqc" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/curfew.jpg?raw=true" width="220" height="342">
+    <h2>Curfew</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="qjCQmpNkBI4" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_artist.jpg?raw=true" width="220" height="342">
+    <h2>The Artist</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Hv3obL9HqyY" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/hugo.jpg?raw=true" width="220" height="342">
+    <h2>Hugo</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="IKPltuiEVJ8" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_iron_lady.jpg?raw=true" width="220" height="342">
+    <h2>The Iron Lady</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="CWHNXJ1K4yA" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_descendants.jpg?raw=true" width="220" height="342">
+    <h2>The Descendants</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="YKWXEfXGWtA" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_girl_with_the_dragon_tattoo.jpg?raw=true" width="220" height="342">
+    <h2>The Girl with the Dragon Tattoo</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FAfR8omt-CY" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/midnight_in_paris.jpg?raw=true" width="220" height="342">
+    <h2>Midnight in Paris</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="l0dWCXCjX9o" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_help.jpg?raw=true" width="220" height="342">
+    <h2>The Help</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="B2Sswx_vrWk" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/a_separation.jpg?raw=true" width="220" height="342">
+    <h2>A Separation</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oavMtUWDBTM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_fantastic_flying_books_of_mr_morris_lessmore.jpg?raw=true" width="220" height="342">
+    <h2>The Fantastic Flying Books of Mr. Morris Lessmore</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oavMtUWDBTM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_shore.jpg?raw=true" width="220" height="342">
+    <h2>The Shore</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="oavMtUWDBTM" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/undefeated.jpg?raw=true" width="220" height="342">
+    <h2>Undefeated</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="C4YhbpuGdwQ" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/the_muppets.jpg?raw=true" width="220" height="342">
+    <h2>The Muppets</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="m76qAslk0y0" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/confused.jpg?raw=true" width="220" height="342">
+    <h2>Saving Face</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="k4QnGNCp9i8" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/beginners.jpg?raw=true" width="220" height="342">
+    <h2>Beginners</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="k-OOfW6wWyQ" data-toggle="modal" data-target="#trailer">
+    <img src="https://github.com/leandrocl2005/oscar-movie-trailes-website/blob/master/movie_images/rango.jpg?raw=true" width="220" height="342">
+    <h2>Rango</h2>
+</div>
+
+    </div>
+  </body>
+</html>
