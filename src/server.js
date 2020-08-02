@@ -19,6 +19,8 @@ nunjucks.configure("src/views", {
 const routes = require("./routes")
 server.use("/", routes)
 
-server.listen(5000, function () {
-    console.log("server is run!")
+const port = process.env.PORT || 5000
+
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}!`)
 })
